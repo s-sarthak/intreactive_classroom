@@ -1,0 +1,394 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width" />
+ <title>Teacher record</title>
+ <link rel="stylesheet" href="{% static "css/components.css" %}">
+ <link rel="stylesheet" href="{% static "css/responsee.css" %}">
+ <link rel="stylesheet" href="{% static "owl-carousel/owl.carousel.css" %}">
+ <link rel="stylesheet" href="{% static "owl-carousel/owl.theme.css" %}">
+ <link rel="stylesheet" href="{% static "css/template-style.css" %}">
+
+ <!-- CUSTOM STYLE -->  
+ <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+ <script type="text/javascript" src="{% static "js/jquery-1.8.3.min.js" %}"></script>
+ <script type="text/javascript" src="{% static "js/jquery-ui.min.js" %}"></script>
+ <script type="text/javascript" src="{% static "js/modernizr.js" %}"></script>
+ <script type="text/javascript" src="{% static "js/responsee.js" %}"></script>
+
+      <!--[if lt IE 9]>
+	      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+</head>
+<body class="size-1140">
+<header>
+         <nav>
+          <div class="line">
+           <div class="top-nav">              
+            <div class="logo hide-l">
+             <a href="../design/">TEACHER <br /><strong>PAGE</strong></a>
+           </div>                  
+           <p class="nav-text">Menu</p>
+           <div class="top-nav s-12 l-5">
+             <ul class="right top-ul chevron">
+              <li><a href="#first-block">Profile</a>
+              </li>
+              <li><a href="#second-block">Time Table</a>
+              </li>
+              <li><a href="https://mighty-wave-17070.herokuapp.com/">Classroom Discussion</a>
+              </li>
+            </ul>
+          </div>
+          <ul class="s-12 l-2">
+           <li class="logo hide-s hide-m">
+            <a href="#carousel">Teacher <br /><strong>Page</strong></a>
+          </li>
+        </ul>
+        <div class="top-nav s-12 l-5">
+         <ul class="top-ul chevron">
+          <li><a href="#third-block">Assignments</a>
+          </li>
+          <li><a href="#fourth-block">Submit</a>
+          </li>
+          <li><a href="#fifth-block">Contact</a>
+          </li>
+          <li><a href="admin/">Login</a>
+          </li>
+        </ul> 
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
+<section>
+ <!-- CAROUSEL -->  	
+ <div id="carousel">
+  <div id="owl-demo" class="owl-carousel owl-theme">
+   <div class="item">
+    <img src="{% static "img/first.jpg" %}" alt=""> 
+    <div class="carousel-text">
+     <div class="line">
+      <div class="s-12 l-9">
+       <h2>Welcome to the official page</h2>
+     </div>
+     <div class="s-12 l-9">
+       <p>
+         Find my profile and time table below
+       </p>
+     </div>
+   </div>
+ </div>
+</div>
+<div class="item">
+  <img src="{% static "img/second.jpg" %}" alt="">      
+  <div class="carousel-text">
+   <div class="line">
+    <div class="s-12 l-9">
+     <h2>Find all the assignments below</h2>
+   </div>
+   <div class="s-12 l-9">
+     <p>
+       Submit assignments from this site
+     </p>
+   </div>
+ </div>
+</div>
+</div>
+<div class="item">
+  <img src="{% static "img/third.jpg" %}" alt=""> 
+
+  <div class="carousel-text">
+   <div class="line">
+    <div class="s-12 l-9">
+     <h2>Head to Classroom discussion for doubts</h2>
+   </div>
+   <div class="s-12 l-9">
+     <p>
+       For queries, contact below
+     </p>
+   </div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+<div id="first-block">
+
+  <h2>Profile</h2>
+  <div class="line">
+
+    {% for p in profile %}
+    <center><img  style="height:330px; width: 35%;"src="{{p.image.url}}">
+     <h4>
+     Name : {{p.name}}<br>
+     Subjects : {{p.subjects}}<br>
+     DOB : {{p.dob}}<br>
+     Phone Number : {{p.phone_no}}<br>
+     Fields of Interests : {{p.field_of_interest}}<br>
+     Email : {{p.email}}<br>
+     </h4></center>
+   {% endfor%}
+
+ </div>
+</div>
+
+</div>
+<div id="second-block">
+
+  <h2>Time table</h2>
+  <div class="line">
+
+    {% for t in timetable %}
+    <center><img  style="height:250px; width: 35%;"src="{{t.image.url}}">
+     </center>
+   {% endfor%}
+
+ </div>
+</div>
+
+</div>
+<div id="third-block">
+  <div class="line">
+   <h2>Assignments</h2>
+   <p class="subtitile">
+     Assignments to be submitted
+   </p>
+   <div class="margin">
+    {% for assignment in assignments %}
+    <div class="s-12 m-6 l-3 margin-bottom">
+    {{assignment.code}}, {{assignment.topic}}
+    <br>class : {{assignment.class_sec}}
+    <br><a href="{{assignment.image.url}}">Click to view Assingment</a>
+    <br>Deadline : {{assignment.deadline}}
+   </div>
+   {% endfor %}
+
+ </div>
+</div>
+</div>
+
+<div id="fourth-block">
+
+  <div class="line">
+   <h2>Submit Assignment</h2>
+
+   <div class="margin">
+    <div class="s-12 l-6">
+
+      <form id="submitform" class="customform" action="">
+       {% csrf_token %}
+
+       <div class="s-12 l-7 fieldWrapper">
+        {{ submission.roll_no.errors }}
+       
+        {{ submission.roll_no }}
+      </div>
+      <div class="s-12 l-7 fieldWrapper">
+        {{ submission.name.errors }}
+       
+        {{ submission.name }}
+      </div>
+      <div class="s-12 l-7 fieldWrapper">
+        {{ submission.code.errors }}
+       
+        {{ submission.code }}
+      </div>
+      <div class="s-12 l-7 fieldWrapper">
+        {{ submission.class_sec.errors }}
+       
+        {{ submission.class_sec }}
+      </div>
+
+       <div class="s-12 l-7 fieldWrapper">
+       
+        {{ submission.email.errors }}
+        <p id='errors2' style="color:red;"> The email/name entered is invalid </p>
+
+        {{ submission.email }}
+      </div>
+      <div class="s-12 l-7 fieldWrapper">
+        {{ submission.drive_link.errors }}
+       
+        {{ submission.drive_link }}
+      </div>
+
+      <div class="s-12 m-6 l-4"><button type="submit">Submit</button></div>
+
+    </form>
+
+  </div>
+  <div id="formsubmit2" style="color:red; text-align:left" class="s-12 l-7">
+    Your Assignment has been recorded
+  </div>
+</div>
+</div>
+
+</div>
+
+
+
+<div id="fifth-block">
+
+  <div class="line">
+   <center><h2>Contact</h2></center>
+
+   <div class="margin">
+    <div class="s-12 l-6">
+
+      <form id="contactform" class="customform" action="">
+       {% csrf_token %}
+
+
+       <div class="s-12 l-7 fieldWrapper">
+
+        {{ form.email.errors }}
+        <p id='errors' style="color:red;"> The email/name entered is invalid </p>
+
+        {{ form.email }}
+      </div>
+      <div class="s-12 l-7 fieldWrapper">
+        {{ form.name.errors }}
+       
+        {{ form.name }}
+      </div>
+      <div class="s-12 fieldWrapper">
+        {{ form.query.errors }}
+
+        {{ form.query }}
+
+      </div>
+
+      <div class="s-12 m-6 l-4"><button type="submit">Submit</button></div>
+
+    </form>
+
+  </div>
+  <div id="formsubmit" style="color:red; text-align:left" class="s-12 l-7">
+    Your query has been recorded
+  </div>
+</div>
+</div>
+
+</div>
+<script type="text/javascript" src="{% static "owl-carousel/owl.carousel.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.smooth-scroll.js" %}"></script>
+<script type="text/javascript">
+ jQuery(document).ready(function($) {  
+   $("#owl-demo").owlCarousel({
+     slideSpeed : 300,
+     autoPlay : true,
+     navigation : false,
+     pagination : true,
+     singleItem:true
+   });
+   $("#owl-demo2").owlCarousel({
+     slideSpeed : 300,
+     autoPlay : true,
+     navigation : false,
+     pagination : true,
+     singleItem:true
+   });
+
+   $("#owl-demo3").owlCarousel({
+     slideSpeed : 300,
+     autoPlay : true,
+     navigation : false,
+     pagination : true,
+     singleItem:true
+   });
+
+   $('a').smoothScroll(
+    {offset:-100,
+    });
+
+   $('#formsubmit').hide()
+   $('#formsubmit2').hide()
+   $('#errors').hide()
+   $('#errors2').hide()
+
+
+   $("#contactform").submit(function(e) {
+    $('#formsubmit').hide()
+    $('#errors').hide()
+    var url = "teacher/addquery"; // the script where you handle the form input.
+    e.preventDefault(); 
+    function temp(){
+      $('#formsubmit').hide()
+
+    }
+    $.ajax({
+     type: "POST",
+     url: url,
+           data: $("#contactform").serialize(), // serializes the form's elements.
+           success: function(data)
+           {  
+            if (data.email!=0){
+              $('#errors').show();
+              console.log('hey');
+            }
+            else{
+              $('#formsubmit').show("fast",function(){
+
+                window.setTimeout(temp,3500);
+              });
+              $('input,textarea').val('');
+              console.log('hello')
+
+
+
+            }
+            
+
+
+          }
+        });
+    });
+    $("#submitform").submit(function(e) {
+    $('#formsubmit2').hide()
+    $('#errors2').hide()
+    var url2 = "teacher/submitassignment"; // the script where you handle the form input.
+    e.preventDefault(); 
+    function temp(){
+      $('#formsubmit2').hide()
+
+    }
+    $.ajax({
+     type: "POST",
+     url: url2,
+           data: $("#submitform").serialize(), // serializes the form's elements.
+           success: function(data)
+           {  
+            if (data.roll_no!=0){
+              $('#errors2').show();
+              console.log('hey');
+            }
+            else{
+              $('#formsubmit2').show("fast",function(){
+
+                window.setTimeout(temp,3500);
+              });
+              $('input,textarea').val('');
+              console.log('hello')
+
+
+
+            }
+            
+
+
+          }
+        });
+    });
+
+    // avoid to execute the actual submit of the form.
+  
+
+
+ });	
+
+</script> 
+</body>
+</html>
