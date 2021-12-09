@@ -18,3 +18,26 @@ a. Students can ask questions.
 b. Put up and view important links. 
 
 Anyone can answer the questions in between the class.
+
+**Homepage**
+![Screenshot 2021-12-09 075103](https://user-images.githubusercontent.com/95467726/145322931-d5f699a5-124a-45f1-8842-c0e25f06ef7f.png)
+
+**Time table **
+![Screenshot 2021-12-09 075221](https://user-images.githubusercontent.com/95467726/145323021-b1c76e22-137d-45cc-9e80-5268a1e85555.png)
+
+**Assignments** 
+![Screenshot 2021-12-09 075236](https://user-images.githubusercontent.com/95467726/145323041-6a7e36a2-ae68-4d4c-b446-18a7d4584bd7.png)
+
+**Courses**
+![Screenshot 2021-12-09 075306](https://user-images.githubusercontent.com/95467726/145323085-3dd48dd0-d81a-494d-b960-123a22e1c723.png)
+
+**Ongoing Class** 
+![Screenshot 2021-12-09 075320](https://user-images.githubusercontent.com/95467726/145323112-f3c847ed-e049-4185-a203-82f71dfb8feb.png)
+
+**Manage the backend as teacher**
+![Screenshot 2021-12-09 075344](https://user-images.githubusercontent.com/95467726/145323149-e579d90b-adad-4b77-98b4-48e10d3c0361.png)
+
+**Check records submiited by students**
+![Screenshot 2021-12-09 075402](https://user-images.githubusercontent.com/95467726/145323156-c23c70e5-acb1-497a-bc51-a5953190ccef.png)
+
+
