@@ -23,7 +23,7 @@ Anyone can answer the questions in between the class.
 
 ![Screenshot 2021-12-09 075103](https://user-images.githubusercontent.com/95467726/145322931-d5f699a5-124a-45f1-8842-c0e25f06ef7f.png)
 
-**Time table **
+**TimeTable **
 
 ![Screenshot 2021-12-09 075221](https://user-images.githubusercontent.com/95467726/145323021-b1c76e22-137d-45cc-9e80-5268a1e85555.png)
 
