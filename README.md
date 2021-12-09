@@ -1,4 +1,4 @@
-# intreactive_classroom
+# Interactive_classroom
 The web application has teacher-student portal where each student can get their specific teacher college information like their, timetable, their profile, assignments to be submitted etc. 
 
 The project aims at building a web application for maintaining college student teacher records and files. The web application mainly has teacher-student portal where each student can get their specific teacher college information like their, timetable, their profile, assignments to be submitted etc. The web application has following features: 
